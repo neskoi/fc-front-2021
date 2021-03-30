@@ -1,0 +1,84 @@
+.page-container {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background: var(--white);
+}
+
+.page-container .avatar {
+    width: 100px;
+    height: 100px;
+
+    margin-bottom: 4rem;
+    border-radius: 6.25rem;
+
+    background: gray;
+}
+
+.page-container .form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-container .form > input {
+    width: 85%;
+    height: 3rem;
+
+    border: 1px solid var(--black);
+    border-radius: 4px;
+
+    margin: 0.5rem auto;
+    padding-left: 5px;
+}
+
+.page-container .form > button {
+    width: 85%;
+    height: 3rem;
+
+    border: none;
+    border-radius: 4px;
+
+    margin: 0.5rem auto;
+
+    font-size: 1rem;
+    font-weight: 500;
+
+    color: var(--white);
+    background: var(--black);
+    cursor: pointer;
+}
+
+.page-container > a {
+    margin: 10px auto;
+
+    color: #525050;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.options .option-login {
+    width: 50px;
+    height: 50px;
+
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 2rem;
+
+    border-radius: 6.25rem;
+
+    background: gray;
+}
