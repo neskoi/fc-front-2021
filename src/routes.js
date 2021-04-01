@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import NewStudentPage from './pages/NewStudentPage/NewStudentPage';
 import StudentsPage from './pages/StudentsPage/StudentsPage'
 
+
 function Routes() {
     return (
         <BrowserRouter>
