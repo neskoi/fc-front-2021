@@ -8,4 +8,6 @@
 :root {
     --white: #fff;
     --black: #000;
+    --orange: #ff692a;
+    --blue-transparent: rgba(28, 98, 145, 0.75)
 }
