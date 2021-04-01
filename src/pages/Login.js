@@ -1,39 +1,81 @@
+import { Button, TextField } from "@material-ui/core"
+import axios from 'axios';
 import React from 'react';
+import { useHistory } from 'react-router';
+import { BASE_URL } from '../constants/URLs';
+import { useForm } from '../hooks/UseForm';
+import { FormContainer, LoginPageContainer } from "./LoginStyles";
 
-import '../styles/pages/Login.css';
+function Login() {
+    const history = useHistory()
+    const {form, onChange} = useForm({ email: "", password: "" })
 
-function Home() {
+    const handleInputChange = (event) => {
+        const { value, name } = event.target
+        onChange(value, name)
+        console.log(form)
+    }
+  
+    const onSubmitForm = (event) => {
+        event.preventDefault()
+        const body = {
+            "email": form.email,
+            "password": form.password
+        }
+        console.log(body)
+        
+        axios.post(`${BASE_URL}/usuario/login`,body)
+        .then((res)=> {
+            console.log(res.data.data)
+            localStorage.setItem('token',res.data.data.token)
+            history.push('/students')
+            alert("Login realizado com sucesso")
+        })
+        .catch((err)=> {
+            console.log(err)
+            alert("Desculpe. Houve algum erro")
+        })
+    }
+
     return (
-        <>
-        <div className="page-container">
-            <div className="avatar" />
-
-            <div className="form">
-                <input 
-                    type="email"
-                    name="email"
-                    placeholder="Digite seu email"
+        <LoginPageContainer>
+        
+            <FormContainer onSubmit={onSubmitForm}>
+            <h1 style={{ color: '#FF692A' }}>Equipa os Guri</h1>
+            
+                <TextField 
+                    label="E-mail"
+                    color="primary"
+                    style={{ backgroundColor: 'white' }}
+                    variant="outlined"
+                    name='email'
+                    value={form.email}
+                    type='email'
+                    required
+                    onChange={handleInputChange}
                 />
                 
-                <input 
-                    type="text"
-                    name="password"
-                    placeholder="Digite sua senha"
+                <TextField 
+                    label="Senha"
+                    color="primary"
+                    style={{ backgroundColor: 'white' }}
+                    variant="outlined"
+                    name='password'
+                    value={form.password}
+                    type='password'
+                    required
+                    onChange={handleInputChange}
                 />
 
-                <button>LOGIN</button>
-            </div>
+                <Button type='submit' style={{ color: 'white', backgroundColor: '#FF692A' }} variant="contained">LOGIN</Button>
+            
 
-            <a href="/">CADASTRAR-SE</a>
-            <a href="/">ESQUECI A SENHA</a>
-
-            <div className="options">
-                <div className="option-login" />
-                <div className="option-login" />
-            </div>          
-        </div>
-        </>
+            <Button style={{ color: 'white' }} onClick={()=> history.push('/signup')}>CADASTRAR-SE</Button>
+            <Button style={{ color: 'white' }}>ESQUECI A SENHA</Button>
+      
+        </FormContainer>
+        </LoginPageContainer>
     );
 }
 
-export default Home;
+export default Login;

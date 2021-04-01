@@ -1,0 +1,1 @@
+export const BASE_URL = "https://www.fc-back-2021.tk"

@@ -5,7 +5,7 @@ const CardStudent = (props) => {
 
     return (
         <StudentContainer>
-            <img src={props.avatar} alt={props.avatar} />
+            <img src={props.avatar} alt={props.name} />
             <p>Nome: {props.name}</p>
             <p>Escola: {props.school}</p>
             <p>Ano: {props.year}</p>
