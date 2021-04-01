@@ -23,8 +23,8 @@ function Pay() {
                 Dados do Financeiros
             </div>
 
-            <div className="board">
-                <p>Você está ciente que 5% do valor doado  será destinado para manter os custos da EQUIPA OS GURI</p>
+            <div className="board" style={{backgroundColor: 'var(--orange)'}}>
+                <p>5% do valor doado será destinado para manter os custos da EQUIPA OS GURI.</p>
             </div>
 
             <div className="board">
@@ -45,9 +45,9 @@ function Pay() {
                 </div>
             </div>
 
-            <div className="board">
-               <p>Total:</p>
-               <div className="bold"><p>R$ 263,09 (250,57 + 12,52 )</p></div>
+            <div className="total-value">
+                <div className="icon" style={{width:'30px', height:'30px', backgroundColor:'red'}}></div>
+                <label>Valor</label>
             </div>  
 
             <button>Efetuar Pagamento</button>
