@@ -10,9 +10,12 @@
     --black: #000;
     --input-color: #6c6c6c;
     --muted-color: #c4c4c4;
-    --blue-transparent: rgba(28, 98, 145, 0.75)
+    --blue-transparent: rgba(28, 98, 145, 0.75);
     --blue: #1C6291;
     --orange: #FF692A;
+    --gray-text: #897F7F;
+    --gray: #F6F4F4;
+    --light-gree: #97F188;
 }
 
 @font-face {
