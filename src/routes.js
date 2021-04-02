@@ -10,6 +10,8 @@ import NewStudentPage from './pages/NewStudentPage/NewStudentPage';
 import StudentsPage from './pages/StudentsPage/StudentsPage'
 import GoalPage from './pages/GoalPage/GoalPage';
 import ResponsiblePage from './pages/ResponsiblePage/ResponsiblePage';
+import test from './pages/UpEstimate/UpEstimate';
+
 function Routes() {
     return (
         <BrowserRouter>
@@ -22,7 +24,7 @@ function Routes() {
             <Route path="/newstudent" exact component={NewStudentPage} />
             <Route path="/goal" exact component={GoalPage} />
             <Route path="/responsible" exact component={ResponsiblePage} />
-
+            <Route path="/test" exact component={test} />
         </BrowserRouter>
     );
 }
