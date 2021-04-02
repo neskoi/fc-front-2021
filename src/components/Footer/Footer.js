@@ -12,7 +12,7 @@ const Footer = (props) => {
         width: 100vw;
         color: var(--white);
         background-color: var(--blue);
-        & a {
+        a {
             text-decoration: none;
             color: var(--white);
         } & a:active {
