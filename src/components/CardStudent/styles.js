@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const StudentContainer = styled.div `
+export const StudentContainer = styled.form `
     display: flex;
     flex-direction: column;
     width: 80vw;
