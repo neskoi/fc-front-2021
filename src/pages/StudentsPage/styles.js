@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const StudentContainer = styled.div `
+export const ListContainer = styled.div `
     display: flex;
     flex-direction: column;
     width: 80vw;
@@ -10,6 +10,4 @@ export const StudentContainer = styled.div `
     margin-top: 15px;
     margin-bottom: 15px;
     padding: 15px;
-    background-color: lightgrey;
-    border-radius: 5px;
 `
