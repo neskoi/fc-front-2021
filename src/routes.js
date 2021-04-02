@@ -10,9 +10,7 @@ import NewStudentPage from './pages/NewStudentPage/NewStudentPage';
 import StudentsPage from './pages/StudentsPage/StudentsPage'
 import GoalPage from './pages/GoalPage/GoalPage';
 import ResponsiblePage from './pages/ResponsiblePage/ResponsiblePage';
-
 import Home from './pages/Home';
-
 
 function Routes() {
     return (
@@ -33,25 +31,4 @@ function Routes() {
     );
 }
 
-
-
-
-
-
-
-
-
-
-
 export default Routes;
-
-
-
-
-
-
-
-
-
-
-
