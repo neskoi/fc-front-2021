@@ -3,8 +3,10 @@ import StyledRegister from './styles'
 import Container from '../../components/Container'
 import BlueSquare from '../../components/BlueSquare'
 import PrimaryButton from '../../components/Button/Primary'
+import { useHistory } from 'react-router'
 
 const Register = () => {
+  const history = useHistory()
   return (
     <Container>
       <BlueSquare>
@@ -12,8 +14,8 @@ const Register = () => {
           <h2>Equipa os Guri</h2>
           <h4>Selecione seu objetivo</h4>  
         </StyledRegister.Banner>
-        <PrimaryButton name="Solicitar Doação" />
-        <PrimaryButton name="Realizar Doação" />
+        <PrimaryButton name="Solicitar Doação" onClick={()=> history.push('/responsible')}/>
+        <PrimaryButton name="Realizar Doação" onClick={()=> history.push('/students')}/>
       </BlueSquare>
     </Container>
   )

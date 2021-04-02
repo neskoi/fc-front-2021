@@ -14,7 +14,12 @@ const StudentsPage = () => {
 
 
     const getAllStudents = () => {
-        axios.get(`${BASE_URL}/students/all`)
+        axios.get(`${BASE_URL}/students/all`,
+        {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
         .then((res)=>{
             console.log(res.data.result)
             setStudents(res.data.result)
@@ -32,6 +37,7 @@ const StudentsPage = () => {
             {students && students.sort((a, b) => a.name > b.name ? 1:-1).map(student => {
                 return (
                     <CardStudent
+                        key={student.pk_filho}
                         avatar={student.img_avatar_url}
                         name={student.nome}
                         school={student.escola}

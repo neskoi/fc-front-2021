@@ -2,32 +2,51 @@ import { BASE_URL } from "../../constants/URLs"
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
 import { useForm } from "../../hooks/UseForm"
-import { FormContainer } from "./styles"
+import { FormContainer, StyledButton, StyledLabel, TitleContainer } from "./styles"
+import { Button, TextField } from "@material-ui/core"
+import Footer from "../../components/Footer/Footer"
+import Header from "../../components/Header"
 
 const NewStudentPage = () => {
 
     const [schools, setSchools] = useState([])
-    const {form, onChange, resetState} = useForm({ name: "", cpf: "", school: "", year: "", description: "" })
+    const [states, setStates] = useState([])
+    const {form, onChange, resetState} = useForm({ name: "", cpf: "", school: "", year: "", description: "", state:"" })
 
     const handleInputChange = (event) => {
         const { value, name } = event.target
         onChange(value, name)
+        console.log(form)
     }
 
     useEffect(()=>{
-        getAllSchools()
-    },[])
+        getStates()
+        getSchoolsByState(form.state)
+    },[form.state])
 
-
-    const getAllSchools = () => {
-        axios.get(`${BASE_URL}/allSchools`,
+    const getStates = () => {
+        axios.get(`${BASE_URL}/estado/buscar`,
         {
             headers: {
-                Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwa191c3VhcmlvIjoxNiwiaWF0IjoxNjE3MjMyODk0fQ.njU7tVh96ic2maVlVEOJKoTb1ri9cVvBgMvNid-36qw'
+                Authorization: `Bearer ${localStorage.getItem('token')}`
             }
         })
         .then((res)=>{
-            console.log(res.data.result)
+            setStates(res.data.data)
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    }
+
+    const getSchoolsByState = (id) => {
+        axios.get(`${BASE_URL}/school/state/${id}`,
+        {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+        .then((res)=>{
             setSchools(res.data.result)
         })
         .catch((err)=>{
@@ -37,60 +56,94 @@ const NewStudentPage = () => {
 
     const CreateStudent = (event) => {
         event.preventDefault()
-        alert("estudante criado")
-        console.log(form)
-        resetState()
+        const body = {
+            "school": form.school,
+            "name": form.name,
+            "cpf": form.cpf,
+            "year": form.year,
+            "description": form.description,
+        }
+        axios.post(`${BASE_URL}/student/9`,body,
+        {
+            headers: {
+                'Content-Type': 'multipart/form-data',  
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+        .then((res)=>{
+            resetState()
+            alert("estudante criado")
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+        
+        
     }
 
     return(
+        <div>
         <FormContainer>
-            <p>Dados do Aluno Beneficiado</p> 
+            <TitleContainer>
+            <p>Dependente</p>
+            </TitleContainer>
             <button>Carregar imagem</button>
-            <label>Nome do aluno</label>
-            <input
+            <StyledLabel>Nome do aluno</StyledLabel>
+            <TextField
+            id="input-with-icon-adornment"
                 name="name"
                 value={form.name}
-                label="name"
+                variant="outlined"
                 required
                 onChange={handleInputChange}
             />
-            <label>CPF do aluno</label>
-            <input
+            <StyledLabel>CPF do aluno</StyledLabel>
+            <TextField
                 name="cpf"
                 value={form.cpf}
-                label="cpf"
+                variant="outlined"
                 required
                 onChange={handleInputChange}
             />
-            <label>Escola</label>
-            <select name="school" value={form.school} onChange={handleInputChange} required>
-                <option value="">Escolha uma escola</option>
+            <StyledLabel>UF da Escola</StyledLabel>
+            <TextField select name="state" variant="outlined" value={form.state} onChange={handleInputChange} required>
+                {states && states.sort((a, b) => a.nome > b.nome ? 1:-1).map(state => {
+                    return (
+                        <option key={state.pk_estado} value={state.pk_estado}>{state.nome}</option>
+                    )
+                })}
+            </TextField>
+            <StyledLabel>Escola</StyledLabel>
+            <TextField select name="school" variant="outlined" value={form.school} onChange={handleInputChange} required>
                 {schools && schools.sort((a, b) => a.nome > b.nome ? 1:-1).map(school => {
                     return (
                         <option key={school.pk_escola} value={school.pk_escola}>{school.nome}</option>
                     )
                 })}
-            </select>
-            <label>Ano</label>
-            <input
+            </TextField>
+            <StyledLabel>Ano</StyledLabel>
+            <TextField
                 name="year"
                 value={form.year}
-                label="year"
+                variant="outlined"
                 required
                 onChange={handleInputChange}
             />
-            <label>Conte sua história</label>
-            <textarea
+            <StyledLabel>Conte sua história</StyledLabel>
+            <TextField
                 name="description"
                 value={form.description}
-                label="description"
+                variant="outlined"
                 required
+                multiline
                 rows="6"
                 onChange={handleInputChange}
             />
 
-            <button type="submit" onClick={CreateStudent}>Salvar dados cadastrais</button>
+            <Button style={{color: 'white', backgroundColor: '#FF692A'}} type="submit" onClick={CreateStudent}>Salvar dados cadastrais</Button>
         </FormContainer>
+        <Footer/>
+        </div>
         )
 }
 

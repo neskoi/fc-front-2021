@@ -1,12 +1,15 @@
 import { Button, TextField } from "@material-ui/core"
 import axios from "axios"
 import { useHistory } from "react-router"
+import BlueSquare from "../../components/BlueSquare"
+import Container from "../../components/Container"
 import { BASE_URL } from "../../constants/URLs"
 import { useForm } from "../../hooks/UseForm"
 import { FormContainer, SignUpPageContainer } from "./styles"
+import { useUnprotectedPage } from '../../hooks/UseUnprotectedPage'
 
 const SignUpPage = () => {
-
+    useUnprotectedPage()
     const history = useHistory()
     const {form, onChange} = useForm({ name: "", email: "" })
 
@@ -26,7 +29,7 @@ const SignUpPage = () => {
         .then((res)=> {
             console.log(res)
             alert("Cadastro realizado com sucesso")
-            history.push('/')
+            history.push('/login')
         })
         .catch((err)=> {
             console.log(err)
@@ -35,35 +38,38 @@ const SignUpPage = () => {
 
     return (
         <div>
-            <SignUpPageContainer>   
-                <FormContainer onSubmit={onSubmitForm}>
+            <SignUpPageContainer>
+                <Container>
+                    <BlueSquare>
                     <h1 style={{ color: '#FF692A' }}>Equipa os Guri</h1>
-                    <TextField
-                        label="E-mail"
-                        color="primary"
-                        style={{ backgroundColor: 'white' }}
-                        variant="outlined"
-                        name='email'
-                        value={form.email}
-                        type='email'
-                        required
-                        onChange={handleInputChange}
-                    />
-                    <TextField
-                        label="Senha"
-                        color="primary"
-                        style={{ backgroundColor: 'white' }}
-                        variant="outlined"
-                        name='password'
-                        value={form.password}
-                        type='password'
-                        required
-                        onChange={handleInputChange}
-                    />
-                    <Button type='submit' style={{ color: 'white', backgroundColor: '#FF692A' }} variant="contained">Cadastrar</Button>
-                    <Button style={{ color: 'white' }} onClick={()=> history.push('/')}>Voltar para tela de acesso</Button>    
-                </FormContainer>
-                
+                        <FormContainer onSubmit={onSubmitForm}>
+                            <label>E-mail</label>
+                            <TextField
+                                color="primary"
+                                style={{ backgroundColor: 'white' }}
+                                variant="outlined"
+                                name='email'
+                                value={form.email}
+                                type='email'
+                                required
+                                onChange={handleInputChange}
+                            />
+                            <label>Senha</label>
+                            <TextField
+                                color="primary"
+                                style={{ backgroundColor: 'white' }}
+                                variant="outlined"
+                                name='password'
+                                value={form.password}
+                                type='password'
+                                required
+                                onChange={handleInputChange}
+                            />
+                            <Button type='submit' style={{ color: 'white', backgroundColor: '#FF692A' }} variant="contained">Cadastrar</Button>
+                            <Button style={{ color: 'white' }} onClick={()=> history.push('/login')}>Voltar para tela de acesso</Button>    
+                        </FormContainer>
+                    </BlueSquare>
+                </Container> 
             </SignUpPageContainer>
         </div>
     )
