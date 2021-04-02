@@ -17,9 +17,9 @@ function Routes() {
             <Route path="/signup" exact component={SignupPage} />
             <Route path="/students" exact component={StudentsPage} />
             <Route path="/newstudent" exact component={NewStudentPage} />
-            <Route path="/test" exact component={Modal} />
             <Route path="/goal" exact component={GoalPage} />
             <Route path="/responsible" exact component={ResponsiblePage} />
+
         </BrowserRouter>
     );
 }
