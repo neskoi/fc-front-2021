@@ -28,7 +28,7 @@ function Login() {
         .then((res)=> {
             console.log(res.data.data)
             localStorage.setItem('token',res.data.data.token)
-            history.push('/students')
+            history.push('/goal')
             alert("Login realizado com sucesso")
         })
         .catch((err)=> {
