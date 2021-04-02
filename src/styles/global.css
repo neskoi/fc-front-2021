@@ -9,4 +9,11 @@
     --white: #fff;
     --black: #000;
     --blue: #1C6291;
+    --orange: #FF692A;
+}
+
+@font-face {
+    font-family: 'logoFont';
+    src: local('logoFont'), url("../fonts/logoFont.ttf") format("truetype");
+    font-weight: normal;
 }
