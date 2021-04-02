@@ -10,6 +10,8 @@ import NewStudentPage from './pages/NewStudentPage/NewStudentPage';
 import StudentsPage from './pages/StudentsPage/StudentsPage'
 import GoalPage from './pages/GoalPage/GoalPage';
 import ResponsiblePage from './pages/ResponsiblePage/ResponsiblePage';
+import test from './pages/StudentEstimate/StudentEstimate';
+
 function Routes() {
     return (
         <BrowserRouter>
