@@ -1,9 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-
-const Footer = (props) => {
-    const Footer = styled.div `
+const Footer = styled.div `
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
@@ -20,6 +18,7 @@ const Footer = (props) => {
         }
     `
 
+const footer = (props) => {
     return (
         <Footer>
             <a href="/">Quem Somos</a>
@@ -30,4 +29,4 @@ const Footer = (props) => {
     )
 }
 
-export default Footer;
+export default footer;
