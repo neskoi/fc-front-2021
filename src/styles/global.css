@@ -8,7 +8,18 @@
 :root {
     --white: #fff;
     --black: #000;
-    --orange: #FF692A;
+    --input-color: #6c6c6c;
+    --muted-color: #c4c4c4;
+    --blue-transparent: rgba(28, 98, 145, 0.75);
     --blue: #1C6291;
-    --gray: #F6F6F6;
+    --orange: #FF692A;
+    --gray-text: #897F7F;
+    --gray: #F6F4F4;
+    --light-gree: #97F188;
+}
+
+@font-face {
+    font-family: 'logoFont';
+    src: local('logoFont'), url("../fonts/logoFont.ttf") format("truetype");
+    font-weight: normal;
 }
