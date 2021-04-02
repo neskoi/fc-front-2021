@@ -8,9 +8,9 @@ import Login from './pages/Login';
 import SignupPage from './pages/SignupPage/SignupPage'
 import NewStudentPage from './pages/NewStudentPage/NewStudentPage';
 import StudentsPage from './pages/StudentsPage/StudentsPage'
-import Modal from './components/ConfirmationMessage/ConfirmationMessage';
 import GoalPage from './pages/GoalPage/GoalPage';
 import ResponsiblePage from './pages/ResponsiblePage/ResponsiblePage';
+import Home from './pages/Home';
 
 function Routes() {
     return (
@@ -18,12 +18,13 @@ function Routes() {
             <Route path="/cadastro" exact component={Register} />
             <Route path="/cadastro/pessoa" exact component={PersonRegister} />
             <Route path="/cadastro/sucesso" exact component={Success} />
-            <Route path="/" exact component={Login} />
+            <Route path="/login" exact component={Login} />
             <Route path="/signup" exact component={SignupPage} />
             <Route path="/students" exact component={StudentsPage} />
             <Route path="/newstudent" exact component={NewStudentPage} />
             <Route path="/goal" exact component={GoalPage} />
             <Route path="/responsible" exact component={ResponsiblePage} />
+            <Route path="/" exact component={Home} />
         </BrowserRouter>
     );
 }

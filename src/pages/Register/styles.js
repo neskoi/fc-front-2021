@@ -32,7 +32,7 @@ const Icon = styled(IoIosCheckmarkCircleOutline)`
 
 const Avatar = styled.img`
   width: 135px;
-  heigth: 135px;
+  height: 135px;
 `
 
 const Divider = styled.div`

@@ -3,7 +3,7 @@ import Button from './styles'
 
 const Primary = (props) => {
   return (
-    <Button.Container>
+    <Button.Container onClick={props.onClick}>
       {props.name}
     </Button.Container>
   )
