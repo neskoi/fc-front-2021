@@ -8,14 +8,16 @@ import Login from './pages/Login';
 import SignupPage from './pages/SignupPage/SignupPage'
 import NewStudentPage from './pages/NewStudentPage/NewStudentPage';
 import StudentsPage from './pages/StudentsPage/StudentsPage'
-import Modal from './components/ConfirmationMessage/ConfirmationMessage';
 import GoalPage from './pages/GoalPage/GoalPage';
 import ResponsiblePage from './pages/ResponsiblePage/ResponsiblePage';
+
 import Home from './pages/Home';
+
 
 function Routes() {
     return (
         <BrowserRouter>
+            <Route path="/" exact component={Login} />
             <Route path="/cadastro" exact component={Register} />
             <Route path="/cadastro/pessoa" exact component={PersonRegister} />
             <Route path="/cadastro/sucesso" exact component={Success} />
@@ -26,6 +28,7 @@ function Routes() {
             <Route path="/goal" exact component={GoalPage} />
             <Route path="/responsible" exact component={ResponsiblePage} />
             <Route path="/" exact component={Home} />
+
         </BrowserRouter>
     );
 }
