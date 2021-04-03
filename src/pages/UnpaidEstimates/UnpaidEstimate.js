@@ -4,12 +4,15 @@ import axios from 'axios';
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
 import StudentCard from '../../components/StudentCard/StudentCard';
+
 import StudentEstimate from '../../pages/StudentEstimate/StudentEstimate';
+
 const fixPathName = require('../../utils/fixPathName');
 const {BASE_URL}  = require('../../constants/URLs');
 
 
 const StudentsPage = (props) => {
+
 
     const [students, setStudents] = useState({
         viewStudentEstimate: false,
@@ -72,6 +75,7 @@ const StudentsPage = (props) => {
         })
     }
 
+
     return(
         <Wrapper visible={!students.viewStudentEstimate}>
             <NavBar/>
@@ -92,7 +96,7 @@ const StudentsPage = (props) => {
                 avatarUrl={fixPathName(students.selectedStudent.img_avatar_url)}
                 estimateUrl={fixPathName(students.selectedStudent.img_orcamento_url)}
                 toClose={handleBackToList}
-            />
+          />
             <Footer/>
         </Wrapper>
     )
