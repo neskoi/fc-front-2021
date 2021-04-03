@@ -4,7 +4,9 @@ import styled from 'styled-components';
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
 import StudentCard from '../../components/StudentCard/StudentCard';
+
 import StudentEstimate from '../../pages/StudentEstimate/StudentEstimate';
+
 const fixPathName = require('../../utils/fixPathName');
 const {BASE_URL}  = require('../../constants/URLs');
 
@@ -69,11 +71,17 @@ const FilterRelative = styled.div`
 
 const StudentsPage = (props) => {
 
+
     const [students, setStudents] = useState({
         viewStudentEstimate: false,
         selectedStudent: {},
         list:[]
     })
+
+    useEffect(()=>{
+        getAllUnpaidEstimates()
+    },[])
+
 
     const getAllUnpaidEstimates = () => {
         axios.get(`${BASE_URL}/show-all-unpaid-estimate`,
@@ -130,6 +138,7 @@ const StudentsPage = (props) => {
         })
     }
 
+
     return(
         <Wrapper>
             <NavBar/>
@@ -148,7 +157,7 @@ const StudentsPage = (props) => {
                 message={students.selectedStudent.mensagem}
                 estimateUrl={fixPathName(students.selectedStudent.img_orcamento_url||"")}
                 toClose={handleBackToList}
-            />
+          />
             <Footer/>
         </Wrapper>
     )
