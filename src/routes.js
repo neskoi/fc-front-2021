@@ -12,6 +12,8 @@ import GoalPage from './pages/GoalPage/GoalPage';
 import ResponsiblePage from './pages/ResponsiblePage/ResponsiblePage';
 import Home from './pages/Home';
 
+import test from './pages/UnpaidEstimates/UnpaidEstimate';
+
 function Routes() {
     return (
         <BrowserRouter>
@@ -24,7 +26,10 @@ function Routes() {
             <Route path="/newstudent" exact component={NewStudentPage} />
             <Route path="/goal" exact component={GoalPage} />
             <Route path="/responsible" exact component={ResponsiblePage} />
+            <Route path="/test" exact component={test} />
             <Route path="/" exact component={Home} />
+
+
         </BrowserRouter>
     );
 }

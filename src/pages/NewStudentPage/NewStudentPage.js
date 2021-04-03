@@ -2,10 +2,9 @@ import { BASE_URL } from "../../constants/URLs"
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
 import { useForm } from "../../hooks/UseForm"
-import { FormContainer, StyledButton, StyledLabel, TitleContainer } from "./styles"
+import { FormContainer, StyledLabel, TitleContainer } from "./styles"
 import { Button, TextField } from "@material-ui/core"
 import Footer from "../../components/Footer/Footer"
-import Header from "../../components/Header"
 
 const NewStudentPage = () => {
 
