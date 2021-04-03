@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import {Filter,FilterRelative,Search,SearchGo,SearchHolder,Wrapper} from './styles';
 import axios from 'axios';
-import styled from 'styled-components';
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
 import StudentCard from '../../components/StudentCard/StudentCard';
@@ -8,64 +8,6 @@ import StudentEstimate from '../../pages/StudentEstimate/StudentEstimate';
 const fixPathName = require('../../utils/fixPathName');
 const {BASE_URL}  = require('../../constants/URLs');
 
-const Wrapper = styled.div `
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    background-image: url('${BASE_URL}/background/background-texture.jpg');
-    background-size: 100% 100%;
-    background-attachment: fixed;
-    overflow-x: hidden;
-    & button {
-        margin-bottom: 40px;
-    }
-`
-
-const SearchHolder = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    margin: 20px 0 10px 0;
-    height:63px;
-    width: 100%;
-`
-
-const Search = styled.input.attrs({type:"text", placeholder: 'Pesquisar'})`
-    height: 63px;
-    width: 100%;
-    outline:none;
-    border-radius: 5px;
-    padding: 15px;
-    font-size: 20px;
-    color: var(--gray-text);
-`
-
-const SearchGo = styled.div`
-    height: 29px;
-    width: 29px;
-    background-image: url('${BASE_URL}/icones/searching-magnifying-glass 1.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-`
-
-const Filter = styled.div`
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    height: 47px;
-    width: 50px;
-    background-image: url('${BASE_URL}/icones/Group 211.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-`
-const FilterRelative = styled.div`
-    position: relative;
-    height: 63px;
-    width: 60%;
-`
 
 const StudentsPage = (props) => {
 
@@ -75,8 +17,8 @@ const StudentsPage = (props) => {
         list:[]
     })
 
-    const getAllUnpaidEstimates = () => {
-        axios.get(`${BASE_URL}/show-all-unpaid-estimate`,
+    const getAllUnpaidEstimates = useCallback(async () => {
+         await axios.get(`${BASE_URL}/show-all-unpaid-estimate`,
         {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -88,7 +30,7 @@ const StudentsPage = (props) => {
         .catch((err)=>{
             console.log(err)
         })
-    }
+    },[students])
 
     useEffect(()=>{
         getAllUnpaidEstimates()
@@ -131,7 +73,7 @@ const StudentsPage = (props) => {
     }
 
     return(
-        <Wrapper>
+        <Wrapper visible={!students.viewStudentEstimate}>
             <NavBar/>
             <SearchHolder>
                 <FilterRelative>
@@ -146,7 +88,9 @@ const StudentsPage = (props) => {
                 name={students.selectedStudent.nome}
                 school={students.selectedStudent.escola}
                 message={students.selectedStudent.mensagem}
-                estimateUrl={fixPathName(students.selectedStudent.img_orcamento_url||"")}
+                valorTotal={students.selectedStudent.valor_total}
+                avatarUrl={fixPathName(students.selectedStudent.img_avatar_url)}
+                estimateUrl={fixPathName(students.selectedStudent.img_orcamento_url)}
                 toClose={handleBackToList}
             />
             <Footer/>
