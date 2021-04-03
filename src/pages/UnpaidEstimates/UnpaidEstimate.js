@@ -5,7 +5,9 @@ import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
 import StudentCard from '../../components/StudentCard/StudentCard';
 import StudentEstimate from '../../pages/StudentEstimate/StudentEstimate';
+
 import Checkout from '../Checkout/Checkout';
+
 const fixPathName = require('../../utils/fixPathName');
 const {BASE_URL}  = require('../../constants/URLs');
 
@@ -14,7 +16,9 @@ const StudentsPage = (props) => {
 
     const [students, setStudents] = useState({
         viewStudentEstimate: false,
+
         viewCheckout: false,
+
         selectedStudent: {},
         list:[]
     })
@@ -54,6 +58,7 @@ const StudentsPage = (props) => {
         });
     }
 
+
     const handleShowCheckout = () => {
         setStudents({...students, viewCheckout: true});
     }
@@ -61,6 +66,7 @@ const StudentsPage = (props) => {
     const handleDismissCheckout = () => {
         setStudents({...students, viewCheckout: false});
     }
+
 
     const findOne = (id) => {
         const selected = students.list.find(e => e.pk_orcamento === id);
@@ -96,11 +102,17 @@ const StudentsPage = (props) => {
             <StudentEstimate 
                 visible={students.viewStudentEstimate}
                 name={students.selectedStudent.nome}
+
+                school={students.selectedStudent.escola}
+
                 school={students.selectedStudent.nome_escola}
+
                 message={students.selectedStudent.mensagem}
                 valorTotal={students.selectedStudent.valor_total}
                 avatarUrl={fixPathName(students.selectedStudent.img_avatar_url)}
                 estimateUrl={fixPathName(students.selectedStudent.img_orcamento_url)}
+
+
                 clicked={handleShowCheckout}
                 toClose={handleBackToList}
             />
@@ -112,6 +124,7 @@ const StudentsPage = (props) => {
                 ano={students.selectedStudent.ano_escolar}
                 valorTotal={students.selectedStudent.valor_total}
             />
+
             <Footer/>
         </Wrapper>
     )

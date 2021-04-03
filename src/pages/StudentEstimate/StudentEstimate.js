@@ -15,6 +15,7 @@ const StudentsPage = (props) => {
                     <Cross onClick={()=>{props.toClose();}}/>
                     <Heart/>
                 </FullAvatar>
+
                 <TextField className="name">
                     <span className="icon"><img src={`${BASE_URL}/icones/round-account-button-with-user-inside 1.png`} alt=""/></span>
                     {props.name}
@@ -26,11 +27,14 @@ const StudentsPage = (props) => {
                 <TextField>
                     <span className="icon"><img src={`${BASE_URL}/icones/clipboard-paste-button 1.png`} alt=""/></span>
                     {props.message} 
+
                 </TextField>
 
                 <EstimateHolder>
                     <Estimate src={`${BASE_URL + props.estimateUrl}`}/>
+
                     <span className="icon"><img src={`${BASE_URL}/icones/attachment-clip 1.png`} alt=""/></span>
+
                     <Tap/>
                     <TotalPrice>
                         <p>Valor Total</p>
@@ -43,6 +47,7 @@ const StudentsPage = (props) => {
                 <PayAmount>R$ {props.valorTotal}</PayAmount>
 
                 <OrangeButton clicked={props.clicked} width="70%" icon>Fazer Doação</OrangeButton>
+
                 <Footer/>
             </div>
         </Wrapper>

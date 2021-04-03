@@ -7,6 +7,7 @@ export const Wrapper = styled.div `
     top: 0;
     height: 100vh;
     width: 100%;
+
     background-color: var(--white);
     transition: all 0.6s ease;
     overflow: scroll;

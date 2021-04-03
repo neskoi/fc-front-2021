@@ -8,7 +8,7 @@ export const Wrapper = styled.div `
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    
+
     background-image: url('${BASE_URL}/background/background-texture.jpg');
     background-size: 100% 100%;
     background-attachment: fixed;
@@ -39,9 +39,11 @@ export const Search = styled.input.attrs({type:"text", placeholder: 'Pesquisar'}
 `
 
 export const SearchGo = styled.div`
+
     position: absolute;
     right: 20px;
     top: 18px;
+
     height: 29px;
     width: 29px;
     background-image: url('${BASE_URL}/icones/searching-magnifying-glass 1.png');
@@ -51,6 +53,7 @@ export const SearchGo = styled.div`
 `
 
 export const Filter = styled.div`
+
     height: 47px;
     width: 50px;
     background-image: url('${BASE_URL}/icones/Group 211.png');
