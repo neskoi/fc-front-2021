@@ -28,8 +28,6 @@ function Routes() {
             <Route path="/responsible" exact component={ResponsiblePage} />
             <Route path="/test" exact component={test} />
             <Route path="/" exact component={Home} />
-
-
         </BrowserRouter>
     );
 }
