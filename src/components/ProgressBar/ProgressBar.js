@@ -24,8 +24,8 @@ const Fill = styled.div `
 const ProgressBar = (props) => {
     return (
        <Wrapper style={{width: props.width}}>
-           <Bar><Fill style={{width: '50%'}}/></Bar>
-           <label>100%</label>     
+           <Bar><Fill style={{width: props.progression}}/></Bar>
+           <label>{props.progression}</label>     
        </Wrapper>
     )
 }
