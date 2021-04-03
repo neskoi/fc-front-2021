@@ -3,11 +3,10 @@ const {BASE_URL}  = require('../../constants/URLs');
 
 export const Wrapper = styled.div `
     position: fixed;
+    left: ${props=> props.visible ? 0 : '-100vw'};
     top: 0;
-    left: 0;
     height: 100vh;
     width: 100%;
-    left: ${props=> props.visible ? 0 : '-100vw'};
     background-color: var(--white);
     transition: all 0.6s ease;
     overflow: scroll;

@@ -24,3 +24,7 @@
     src: local('logoFont'), url("../fonts/chubby.woff") ;
     font-weight: normal;
 }
+
+.name{
+    text-transform: capitalize;
+}

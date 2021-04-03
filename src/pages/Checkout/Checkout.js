@@ -1,102 +1,22 @@
 import React from 'react';
-import styled from 'styled-components';
+import {Board, Cross, PayMethod, Title, Wrapper} from './styles';
 import OrangeButton from '../../components/OrangeButton/OrangeButton';
 const {BASE_URL} = require('../../constants/URLs');
 
-const Wrapper = styled.div `
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    text-align: center;
-    padding-top: 40px;
-    background: var(--white);
-    font-size: 1rem;
-    & div:nth-child(7){
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: 500;
-    }
-    & div:nth-child(7) > label{
-        margin: 0px 30px;
-    }
-    
-`
-
-const Title = styled.div `
-    width: 90%;
-    height: 50px;
-    border-radius: 25px;
-    padding: 16px;
-    font-weight: 500;
-    color:  var(--white);
-    background-color: var(--blue);
-    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
-`
-
-const Board = styled.div `
-    width: 90%;
-    background-color: var(--gray);
-    border-radius: 4px;
-    padding: 14px;
-    margin: 20px;
-    text-align: left;
-    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
-    & > p {
-        margin: 8px 0;
-    }
-    & p:nth-child(3){
-        font-weight: 500;
-    }
-`
-
-const Cross = styled.div `
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    height: 24px;
-    width: 24px;
-    background-image: url('${BASE_URL}/icones/close-button 1.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-`
-
-const PayMethod = styled.div `
-    position: relative;
-    width: 100%;
-    height: 40px;
-    border-bottom: 1px solid rgba(33, 33, 33, 0.08);
-    padding-top: 10px;
-    & input[type=radio]{
-        margin: 0px 20px;
-    }
-    & img{
-        position: absolute;
-        top: 5px;
-        right: 16px;
-        display: inline-block;
-        height: 30px;
-        width: 30px;
-    }
-`
-
-function Pay() {
+function Pay(props) {
     return (
-        <Wrapper>
-            <Cross/>
+        <Wrapper visible={props.visible}>
+            <Cross onClick={props.toClose}/>
 
             <Title>Dados do Aluno Beneficiado</Title>
 
             <Board>
-                <p>Marcus Vinícius Pereira e Sousa</p>
-                <p>3ª Série do Ensino Fundamental</p>
-                <p>R$ 250,57</p>
+                <p className="name">{props.name}</p>
+                <p>{props.ano}º Ano da {props.school}</p>
+                <p>R$ {props.valorTotal}</p>
             </Board>
 
-            <Title>Dados do Financeiros</Title>
+            <Title>Dados Financeiros</Title>
 
             <Board style={{backgroundColor: 'var(--orange)', color: 'var(--white)'}}>
                 <p>5% do valor doado será destinado para manter os custos da EQUIPA OS GURI.</p>
@@ -122,7 +42,7 @@ function Pay() {
 
             <Board>
                 <img alt="pix" src={`${BASE_URL}/icones/coin.png`}/>
-                <label>Valor</label>    
+                <label>R$ {props.valorTotal}</label>    
             </Board> 
 
             <OrangeButton width="90%" icon>Efetuar Pagamento</OrangeButton>

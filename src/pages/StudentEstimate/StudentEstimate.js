@@ -15,22 +15,22 @@ const StudentsPage = (props) => {
                     <Cross onClick={()=>{props.toClose();}}/>
                     <Heart/>
                 </FullAvatar>
-                <TextField>
-                    <span className="icon"><img src={`${BASE_URL}/icones/round-account-button-with-user-inside 1.png`}/></span>
+                <TextField className="name">
+                    <span className="icon"><img src={`${BASE_URL}/icones/round-account-button-with-user-inside 1.png`} alt=""/></span>
                     {props.name}
                 </TextField>
                 <TextField>
-                    <span className="icon"><img src={`${BASE_URL}/icones/graduate-cap 1.png`}/></span>
-                    {props.school} AAA Escola de Pilhas
+                    <span className="icon"><img src={`${BASE_URL}/icones/graduate-cap 1.png`} alt=""/></span>
+                    {props.school}
                 </TextField>
                 <TextField>
-                    <span className="icon"><img src={`${BASE_URL}/icones/clipboard-paste-button 1.png`}/></span>
-                    {props.message} Por favo eu quero istuda, comu v prissizo. asdsakjdsadsads jadkhsajdhsad asdhskja dahsjkds sdash  dasdjhsadkjsah  dsadjhsakdhsa 
+                    <span className="icon"><img src={`${BASE_URL}/icones/clipboard-paste-button 1.png`} alt=""/></span>
+                    {props.message} 
                 </TextField>
 
                 <EstimateHolder>
                     <Estimate src={`${BASE_URL + props.estimateUrl}`}/>
-                    <span className="icon"><img src={`${BASE_URL}/icones/attachment-clip 1.png`}/></span>
+                    <span className="icon"><img src={`${BASE_URL}/icones/attachment-clip 1.png`} alt=""/></span>
                     <Tap/>
                     <TotalPrice>
                         <p>Valor Total</p>
@@ -42,7 +42,7 @@ const StudentsPage = (props) => {
 
                 <PayAmount>R$ {props.valorTotal}</PayAmount>
 
-                <OrangeButton width="70%" icon>Fazer Doação</OrangeButton>
+                <OrangeButton clicked={props.clicked} width="70%" icon>Fazer Doação</OrangeButton>
                 <Footer/>
             </div>
         </Wrapper>

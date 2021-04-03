@@ -4,7 +4,6 @@ import { BASE_URL } from '../../constants/URLs'
 
 const Button = styled.button `
     position: relative;
-    height: 60px;
     border: none;
     border-radius: 100px;
     margin: 0.5rem auto;
@@ -26,7 +25,7 @@ const Icon = styled.img `
 
 const OrangeButton = (props) => {
     return (
-       <Button style={{width: props.width}}>
+       <Button onClick={props.clicked} style={{width: props.width, height: props.height || '60px'}}>
            {props.icon ? <Icon src={`${BASE_URL}/icones/Vector.png`}/> : null}
            {props.children}
        </Button>
