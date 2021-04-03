@@ -13,7 +13,7 @@ const Banner = styled.div`
     font-size: 26px;
     font-family: Roboto;
     font-weight: 700;
-    color: var(--orange);
+    color: var(--white);
   }
   & h4 {
     margin-top: 62px;

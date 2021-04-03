@@ -12,7 +12,6 @@ const StudentsPage = () => {
         getAllStudents()
     },[])
 
-
     const getAllStudents = () => {
         axios.get(`${BASE_URL}/students/all`,
         {

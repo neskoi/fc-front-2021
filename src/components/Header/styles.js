@@ -8,7 +8,7 @@ const Header = styled.h2`
   font-family: Roboto;
   font-weight: 400;
   font-size: 18px;
-  background: var(--blue);
+  background: var(--orange);
   color: var(--white);
 `
 
