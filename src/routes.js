@@ -13,6 +13,8 @@ import ResponsiblePage from './pages/ResponsiblePage/ResponsiblePage';
 import Home from './pages/Home';
 
 import test from './pages/UnpaidEstimates/UnpaidEstimate';
+import test2 from './pages/StudentEstimate/StudentEstimate';
+
 
 function Routes() {
     return (
@@ -27,6 +29,7 @@ function Routes() {
             <Route path="/goal" exact component={GoalPage} />
             <Route path="/responsible" exact component={ResponsiblePage} />
             <Route path="/test" exact component={test} />
+            <Route path="/test2" exact component={test2} />
             <Route path="/" exact component={Home} />
         </BrowserRouter>
     );
