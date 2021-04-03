@@ -8,7 +8,7 @@ const Wrapper = styled.div `
     position: relative;
     align-items: center;
     height: 207px;
-    width: 90%;
+    width: 30%;
     margin: 10px;
     background-size: cover;
     background-position: center;
@@ -21,6 +21,10 @@ const Wrapper = styled.div `
         bottom: 10px;
         right: 10px;
         margin: 0;
+    }
+
+    @media only screen and (max-width:900px){
+        width: 90%;
     }
 `
 

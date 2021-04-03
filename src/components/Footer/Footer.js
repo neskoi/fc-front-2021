@@ -7,7 +7,7 @@ const Footer = styled.div `
         justify-content: space-evenly;
         align-items: center;
         height: 195px;
-        width: 100vw;
+        width: 100%;
         color: var(--white);
         background-color: var(--blue);
         & a {
@@ -15,6 +15,9 @@ const Footer = styled.div `
             color: var(--white);
         } & a:active {
             color: var(--white);
+        }
+        > p {
+            margin-top: 20px;
         }
     `
 
@@ -24,7 +27,7 @@ const footer = (props) => {
             <a href="/">Quem Somos</a>
             <a href="/">Envolva-se</a>
             <a href="/">Fale Conosco</a>
-            COPYRIGHT ©
+            <p>COPYRIGHT ©</p>
         </Footer>
     )
 }
