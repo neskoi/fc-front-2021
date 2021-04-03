@@ -7,6 +7,7 @@ import { BASE_URL } from "../../constants/URLs"
 import { useForm } from "../../hooks/UseForm"
 import { FormContainer, SignUpPageContainer } from "./styles"
 import { useUnprotectedPage } from '../../hooks/UseUnprotectedPage'
+import Footer from "../../components/Footer/Footer"
 
 const SignUpPage = () => {
     useUnprotectedPage()
@@ -70,6 +71,7 @@ const SignUpPage = () => {
                         </FormContainer>
                     </BlueSquare>
                 </Container> 
+            <Footer />
             </SignUpPageContainer>
         </div>
     )
