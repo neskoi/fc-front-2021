@@ -43,7 +43,7 @@ const Icon = styled.div `
 
 const StudentsPage = (props) => {
     return(
-        <Wrapper style={{backgroundImage: `url(${BASE_URL + props.img_avatar_url})`}}>
+        <Wrapper onClick={props.clicked} style={{backgroundImage: `url(${BASE_URL + props.img_avatar_url})`}}>
             <InfoHolder>
                 <Icon/>
                 <ProgressBar width="85%" progression="0%"/>

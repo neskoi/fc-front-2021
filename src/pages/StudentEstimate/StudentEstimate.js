@@ -6,11 +6,17 @@ import OrangeButton from '../../components/OrangeButton/OrangeButton';
 const {BASE_URL}  = require('../../constants/URLs');
 
 const Wrapper = styled.div `
+    position: absolute;
+    top: 0;
+    left: ${props=> props.visible ? 0 : '-100vw'};
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    overflow:hidden;
+    background-color: var(--white);
+    transition: all 0.6s ease;
     & button {
         margin-bottom: 40px;
     }
@@ -48,6 +54,7 @@ const Cross = styled.div `
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+    cursor: pointer;
 `
 
 const Heart = styled.div `
@@ -125,26 +132,26 @@ const PayAmount = styled.div `
 
 const StudentsPage = (props) => {
     return(
-        <Wrapper>
-            <FullAvatar style={{backgroundImage:`url(${BASE_URL}/imagens/leo-rivas-2iqKxsN659U-unsplash.jpg)`}}>
-                <Cross/>
+        <Wrapper visible={props.visible}>
+            <FullAvatar style={{backgroundImage:`url(${BASE_URL + props.img_orcamento_url}`}}>
+                <Cross onClick={()=>{props.toClose()}}/>
                 <Heart/>
             </FullAvatar>
             <TextField>
                 <Icon src={`${BASE_URL}/icones/round-account-button-with-user-inside 1.png`}/>
-                {props.name} Serjão mata onça.
+                {props.name}
             </TextField>
             <TextField>
                 <Icon src={`${BASE_URL}/icones/graduate-cap 1.png`}/>
-                {props.escola} AAA Escola de Pilhas
+                {props.school} AAA Escola de Pilhas
             </TextField>
             <TextField>
                 <Icon src={`${BASE_URL}/icones/clipboard-paste-button 1.png`}/>
-                {props.mensagem} Por favo eu quero istuda, comu v prissizo. asdsakjdsadsads jadkhsajdhsad asdhskja dahsjkds sdash  dasdjhsadkjsah  dsadjhsakdhsa 
+                {props.message} Por favo eu quero istuda, comu v prissizo. asdsakjdsadsads jadkhsajdhsad asdhskja dahsjkds sdash  dasdjhsadkjsah  dsadjhsakdhsa 
             </TextField>
 
             <EstimateHolder>
-                <Estimate src={`${BASE_URL}/imagens/leo-rivas-2iqKxsN659U-unsplash.jpg`}/>
+                <Estimate src={`${BASE_URL + props.img_orcamento_url}`}/>
                 <Icon src={`${BASE_URL}/icones/attachment-clip 1.png`}/>
                 <Tap/>
                 <TotalPrice>
