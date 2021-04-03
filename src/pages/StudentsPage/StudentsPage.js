@@ -23,7 +23,6 @@ const StudentsPage = () => {
         getAllStudents()
     },[])
 
-
     const getAllStudents = () => {
         axios.get(`${BASE_URL}/students/${email}`,
         // axios.get(`${BASE_URL}/students/rayon`,
