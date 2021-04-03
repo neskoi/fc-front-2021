@@ -22,7 +22,7 @@ export const NavBar = styled.div `
             color: var(--orange);
         }
     `
-export const MenuCaller = styled.a`
+export const MenuCaller = styled.div `
     height: 50px;
     width: 50px;
     background-image: url("${BASE_URL}/icones/menuSmall.png");
