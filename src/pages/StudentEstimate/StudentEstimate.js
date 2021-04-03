@@ -1,5 +1,5 @@
 import React from 'react'
-import {Cross, Estimate, EstimateHolder, FullAvatar, Heart, Icon, PayAmount, Tap, TextField, TotalPrice, Wrapper} from './styles'
+import {Cross, Estimate, EstimateHolder, FullAvatar, Heart, PayAmount, Tap, TextField, TotalPrice, Wrapper} from './styles'
 import Footer from '../../components/Footer/Footer'
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import OrangeButton from '../../components/OrangeButton/OrangeButton';
