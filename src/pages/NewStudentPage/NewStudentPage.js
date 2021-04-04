@@ -8,9 +8,12 @@ import Footer from "../../components/Footer/Footer"
 import Primary from "../../components/Button/Primary"
 import NavBar from '../../components/NavBar/NavBar'
 import { useProtectedPage } from '../../hooks/UseProtectedPage'
+import { useHistory } from "react-router"
+import AvatarImg from '../../assets/img/avatar.png'
 
 const NewStudentPage = () => {
     useProtectedPage()
+    const history = useHistory()
     const email = localStorage.getItem('email')
     const [schools, setSchools] = useState([])
     const [states, setStates] = useState([])
@@ -76,6 +79,7 @@ const NewStudentPage = () => {
         .then((res)=>{
             resetState()
             alert("estudante criado")
+            history.push('/dependents')
         })
         .catch((err)=>{
             console.log(err)
@@ -89,6 +93,7 @@ const NewStudentPage = () => {
             <TitleContainer>
             <p>Dependente</p>
             </TitleContainer>
+            <img src={AvatarImg}/>
             <button>Carregar imagem</button>
             <StyledLabel>Nome do aluno</StyledLabel>
             <TextField
