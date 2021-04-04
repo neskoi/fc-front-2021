@@ -14,6 +14,8 @@ const Register = () => {
           <h2>Equipa os Guri</h2>
           <h4>Selecione seu objetivo</h4>  
         </StyledRegister.Banner>
+        {/*<PrimaryButton name="Solicitar Doação" onClick={()=> history.push('/responsavel')}/>
+        <PrimaryButton name="Realizar Doação" onClick={()=> history.push('/estudantes')}/>*/}
         <PrimaryButton name="Solicitar Doação" onClick={()=> history.push('/cadastro/pessoa')}/>
         <PrimaryButton name="Realizar Doação" onClick={()=> history.push('/students')}/> 
       </BlueSquare>

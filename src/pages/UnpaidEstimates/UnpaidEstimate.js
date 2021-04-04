@@ -98,7 +98,7 @@ const StudentsPage = (props) => {
                 </FilterRelative>
                 <Filter/>
             </SearchHolder>
-            {generateList()}
+            <div className="container">{generateList()}</div>
             <StudentEstimate 
                 visible={students.viewStudentEstimate}
                 name={students.selectedStudent.nome}

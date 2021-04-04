@@ -17,11 +17,12 @@
     --gray: #F6F4F4;
     --light-gree: #97F188;
     --light-gray: rgba(181,202,216, 0.19);
+    --green: #1A7F60;
 }
 
 @font-face {
     font-family: 'logoFont';
-    src: local('logoFont'), url("../fonts/chubby.woff") ;
+    src: local('logoFont'), url("../fonts/font.ttf") format("TrueType");
     font-weight: normal;
 }
 

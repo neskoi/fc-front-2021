@@ -17,6 +17,23 @@ export const Wrapper = styled.div `
      & button {
         margin-bottom: 40px;
     }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 80%;
+
+        @media only screen and (max-width:900px){
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+    }
+
+
 `
 
 export const SearchHolder = styled.div`

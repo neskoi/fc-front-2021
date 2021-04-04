@@ -3,10 +3,10 @@ const {BASE_URL} = require('../../constants/URLs');
 
 export const Wrapper = styled.div `
     position: fixed;
-    right: ${props=> props.visible ? 0 : '-100vw'};
+    left: ${props=> props.visible ? 0 : '-150vw'};
     top: 0;
     height: 100vh;
-    width: 100%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -24,6 +24,15 @@ export const Wrapper = styled.div `
     }
     & div:nth-child(7) > label{
         margin: 0px 30px;
+    }
+    @media only screen and (max-width:900px){
+        flex-direction: column;
+        justify-content: space-between;
+        right: ${props=> props.visible ? 0 : '-150vw'};
+        left: auto;
+        align-items: center;
+        width: 100%;
+        width: 100%;
     }
     
 `
