@@ -3,10 +3,10 @@ const {BASE_URL}  = require('../../constants/URLs');
 
 export const Wrapper = styled.div `
     position: fixed;
-    left: ${props=> props.visible ? 0 : '-100vw'};
+    left: ${props=> props.visible ? 0 : '-150vw'};
     top: 0;
     height: 100vh;
-    width: 100%;
+    width: 40%;
 
     background-color: var(--white);
     transition: all 0.6s ease;
@@ -21,6 +21,13 @@ export const Wrapper = styled.div `
         justify-content: space-between;
         align-items: center;
         width: 100%;
+        @media only screen and (max-width:900px){
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            width: 100%;
+        }
     }
 
     .icon img {
@@ -29,6 +36,10 @@ export const Wrapper = styled.div `
         left: -40px;
         height: 29px;
         width: 29px;
+    }
+
+    @media only screen and (max-width:900px){
+        width: 100%;
     }
 `
 

@@ -6,7 +6,6 @@ const Button = styled.button `
     position: relative;
     border: none;
     border-radius: 100px;
-    margin: 0.5rem auto;
     font-size: 1rem;
     color: var(--white);
     background: var(--black);

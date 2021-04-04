@@ -21,7 +21,6 @@ const DrawerMenu = (props) => {
         <Styled.Person>
           <Styled.Avatar src={AvatarImg} />
           <div>
-            <h4>Nome do Responsável</h4>
             <p>{email}</p>
           </div>
         </Styled.Person>

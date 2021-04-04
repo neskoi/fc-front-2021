@@ -6,6 +6,7 @@ const Banner = styled.div`
   height: 200px;
   & h2 {
     font-size: 28px;
+    font-family: 'logoFont', sans-serif;
     color: var(--orange);
   }
   & h3 {
