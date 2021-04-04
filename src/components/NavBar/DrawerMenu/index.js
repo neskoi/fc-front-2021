@@ -1,6 +1,8 @@
 import React from 'react'
 import Styled from './styles'
 import AvatarImg from '../../../assets/img/avatar.png'
+
+const DrawerMenu = (props) => {
 import { useHistory } from 'react-router'
 
 const DrawerMenu = (props) => {
@@ -22,6 +24,8 @@ const DrawerMenu = (props) => {
           <Styled.Avatar src={AvatarImg} />
           <div>
             <h4>Nome do Responsável</h4>
+            <p>fulano@email.com</p>
+
             <p>{email}</p>
           </div>
         </Styled.Person>
@@ -36,6 +40,8 @@ const DrawerMenu = (props) => {
       <Styled.Footer>
         <ul>
           <li><Styled.SettingsIcon /> configurações</li>
+          <li><Styled.LogoutIcon /> sair</li>
+
           <li onClick={logout}><Styled.LogoutIcon /> sair</li>
         </ul>
       </Styled.Footer>

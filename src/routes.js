@@ -15,16 +15,7 @@ function Routes() {
     return (
 
         <BrowserRouter>
-      {/* <Route path="/" exact component={Landing}/> 
-            <Route path="/login" exact component={Login}/> 
-            <Route path="/signup" exact component={SignupPage}/> 
-            <Route path="/cadastro" exact component={Register}/> 
-            <Route path="/cadastro/pessoa" exact component={PersonRegister} /> 
-            <Route path="/estudantes" exact component={StudentsPage}/> 
-            <Route path="/cadastro/sucesso" exact component={Success}/>
-            <Route path="/newstudent" exact component={NewStudentPage} />
-            <Route path="/responsavel" exact component={ResponsiblePage} /> */}
-            <Route path="/" exact component={Landing}/> 
+
             <Route path="/cadastro" exact component={Register} />
             <Route path="/cadastro/pessoa" exact component={PersonRegister} />
             <Route path="/cadastro/sucesso" exact component={Success} />
@@ -34,6 +25,10 @@ function Routes() {
             <Route path="/newstudent" exact component={NewStudentPage} />
             <Route path="/goal" exact component={GoalPage} />
             <Route path="/responsible" exact component={ResponsiblePage} />
+            <Route path="/test" exact component={test} />
+            <Route path="/test2" exact component={test2} />
+            <Route path="/" exact component={Home} />
+
         </BrowserRouter>
     );
 }
