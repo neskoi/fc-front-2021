@@ -86,6 +86,7 @@ const SettingsIcon = styled(IoMdSettings)`
 const LogoutIcon = styled(IoMdLogOut)`
   font-size: 28px;
   margin-right: 16px;
+  cursor: pointer;
 `
 
 const Footer = styled.div`

@@ -16,9 +16,7 @@ import test2 from './pages/StudentEstimate/StudentEstimate';
 
 function Routes() {
     return (
-
         <BrowserRouter>
-
             <Route path="/cadastro" exact component={Register} />
             <Route path="/cadastro/pessoa" exact component={PersonRegister} />
             <Route path="/cadastro/sucesso" exact component={Success} />
@@ -31,7 +29,6 @@ function Routes() {
             <Route path="/test" exact component={test} />
             <Route path="/test2" exact component={test2} />
             <Route path="/" exact component={Landing} />
-
         </BrowserRouter>
     );
 }

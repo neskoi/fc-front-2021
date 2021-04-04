@@ -1,5 +1,24 @@
 import styled from 'styled-components'
+import { IoMdFunnel } from "react-icons/io";
 export const {BASE_URL}  = require('../../constants/URLs')
+
+export const IconWrapper = styled.a`
+    display: flex;
+    align-itens: center !important;
+    justify-content: center;
+    width: 63px;
+    height: 63px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 100px;
+    background: var(--white);
+    margin-left: 22px;
+    cursor: pointer;
+`
+
+export const IconFilter = styled(IoMdFunnel)`
+    color: var(--orange);
+    align-self: center;
+`
 
 export const Wrapper = styled.div `
     position: ${props=> props.visible ? 'relative' : 'fixed'};
@@ -39,7 +58,7 @@ export const Wrapper = styled.div `
 export const SearchHolder = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     margin: 20px 0 10px 0;
     height:63px;
     width: 100%;

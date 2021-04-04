@@ -21,9 +21,6 @@ const DrawerMenu = (props) => {
         <Styled.Person>
           <Styled.Avatar src={AvatarImg} />
           <div>
-            <h4>Nome do Responsável</h4>
-            <p>fulano@email.com</p>
-
             <p>{email}</p>
           </div>
         </Styled.Person>
@@ -38,8 +35,6 @@ const DrawerMenu = (props) => {
       <Styled.Footer>
         <ul>
           <li><Styled.SettingsIcon /> configurações</li>
-          <li><Styled.LogoutIcon /> sair</li>
-
           <li onClick={logout}><Styled.LogoutIcon /> sair</li>
         </ul>
       </Styled.Footer>

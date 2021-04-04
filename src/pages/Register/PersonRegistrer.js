@@ -2,7 +2,7 @@ import React, {
   useState,
   useEffect,
 } from 'react'
-
+import { useHistory } from "react-router-dom"
 import api from '../../utils/configApi'
 import ContainerWhite from '../../components/ContainerWhite'
 import NavBar from '../../components/NavBar/NavBar'
@@ -16,9 +16,9 @@ import AvatarImg from '../../assets/img/avatar.png'
 import StyledRegister from './styles'
 
 const PersonRegister = () => {
+  const history = useHistory();
   const [estadosBR, setEstadosBR] = useState([])
   const [bancos, setBancos] = useState([])
-
   const [formState, setFormState] = useState({
     nome: '',
     cpf: '',
@@ -44,7 +44,9 @@ const PersonRegister = () => {
     event.preventDefault()
     console.log('formState', formState)
     api().post('pessoa/cadastro', formState)
-      .then(res => alert('Informações Cadastradas com Sucesso'))
+    .then(res => {
+      history.push("/cadastro/sucesso")
+      })
       .catch(e => alert(`Não foi possivel Cadastrar suas informações: ${e.message}`))
   }
 

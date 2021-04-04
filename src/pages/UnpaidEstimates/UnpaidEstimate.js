@@ -1,10 +1,20 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import {Filter,FilterRelative,Search,SearchGo,SearchHolder,Wrapper} from './styles';
+import {
+    Filter,
+    FilterRelative,
+    Search,
+    SearchGo,
+    SearchHolder,
+    Wrapper,
+    IconWrapper,
+    IconFilter,
+} from './styles';
 import axios from 'axios';
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
 import StudentCard from '../../components/StudentCard/StudentCard';
 import StudentEstimate from '../../pages/StudentEstimate/StudentEstimate';
+import Filters from './Filters'
 
 import Checkout from '../Checkout/Checkout';
 
@@ -22,7 +32,7 @@ const StudentsPage = (props) => {
         selectedStudent: {},
         list:[]
     })
-
+    const [modalOpen, setModalOpen] = useState(false)
     const getAllUnpaidEstimates = useCallback(async () => {
          await axios.get(`${BASE_URL}/show-all-unpaid-estimate`,
         {
@@ -96,7 +106,9 @@ const StudentsPage = (props) => {
                     <Search/>
                     <SearchGo/>
                 </FilterRelative>
-                <Filter/>
+                <IconWrapper onClick={() => setModalOpen(true)}>
+                    <IconFilter size={35}/>
+                </IconWrapper>
             </SearchHolder>
             <div className="container">{generateList()}</div>
             <StudentEstimate 
@@ -126,6 +138,7 @@ const StudentsPage = (props) => {
             />
 
             <Footer/>
+            <Filters open={modalOpen} handleClose={() => setModalOpen(false)} />
         </Wrapper>
     )
 }
