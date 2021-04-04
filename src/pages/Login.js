@@ -8,6 +8,7 @@ import { BASE_URL } from '../constants/URLs';
 import { useForm } from '../hooks/UseForm';
 import { FormContainer, LoginPageContainer, StyledButton, StyledInput, Title } from "./LoginStyles";
 import { useUnprotectedPage } from '../hooks/UseUnprotectedPage'
+import Footer from "../components/Footer/Footer"
 
 function Login() {
     useUnprotectedPage()
@@ -26,11 +27,10 @@ function Login() {
             "email": form.email,
             "password": form.password
         }
-        console.log(body)
         
         axios.post(`${BASE_URL}/usuario/login`,body)
         .then((res)=> {
-            console.log(res.data.data)
+            localStorage.setItem('email',res.data.data.email)
             localStorage.setItem('token',res.data.data.token)
             history.push('/cadastro')
             alert("Login realizado com sucesso")
@@ -76,6 +76,7 @@ function Login() {
                     </FormContainer>
                 </BlueSquare>
             </Container>
+            <Footer />
         </LoginPageContainer>
     );
 }

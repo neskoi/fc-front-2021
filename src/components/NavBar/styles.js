@@ -14,7 +14,7 @@ export const NavBar = styled.div `
         
         & a {
             text-decoration: none;
-            font-family: logoFont;
+            font-family: 'logoFont', sans-serif;
             font-size: 25px;
             color: var(--orange);
         } 

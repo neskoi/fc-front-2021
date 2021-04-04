@@ -5,9 +5,13 @@ import { useForm } from "../../hooks/UseForm"
 import { FormContainer, StyledLabel, TitleContainer } from "./styles"
 import { Button, TextField } from "@material-ui/core"
 import Footer from "../../components/Footer/Footer"
+import Primary from "../../components/Button/Primary"
+import NavBar from '../../components/NavBar/NavBar'
+import { useProtectedPage } from '../../hooks/UseProtectedPage'
 
 const NewStudentPage = () => {
-
+    useProtectedPage()
+    const email = localStorage.getItem('email')
     const [schools, setSchools] = useState([])
     const [states, setStates] = useState([])
     const {form, onChange, resetState} = useForm({ name: "", cpf: "", school: "", year: "", description: "", state:"" })
@@ -62,7 +66,7 @@ const NewStudentPage = () => {
             "year": form.year,
             "description": form.description,
         }
-        axios.post(`${BASE_URL}/student/9`,body,
+        axios.post(`${BASE_URL}/student/${email}`,body,
         {
             headers: {
                 'Content-Type': 'multipart/form-data',  
@@ -76,12 +80,11 @@ const NewStudentPage = () => {
         .catch((err)=>{
             console.log(err)
         })
-        
-        
     }
 
     return(
         <div>
+        <NavBar />
         <FormContainer>
             <TitleContainer>
             <p>Dependente</p>
@@ -139,7 +142,8 @@ const NewStudentPage = () => {
                 onChange={handleInputChange}
             />
 
-            <Button style={{color: 'white', backgroundColor: '#FF692A'}} type="submit" onClick={CreateStudent}>Salvar dados cadastrais</Button>
+            {/* <Button style={{color: 'white', backgroundColor: '#FF692A'}} type="submit" onClick={CreateStudent}>Salvar dados cadastrais</Button> */}
+            <Primary name="Salvar" type="submit" onClick={CreateStudent}/>
         </FormContainer>
         <Footer/>
         </div>

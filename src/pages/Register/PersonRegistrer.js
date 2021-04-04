@@ -2,6 +2,7 @@ import React, {
   useState,
   useEffect,
 } from 'react'
+
 import api from '../../utils/configApi'
 import ContainerWhite from '../../components/ContainerWhite'
 import NavBar from '../../components/NavBar/NavBar'
@@ -17,6 +18,7 @@ import StyledRegister from './styles'
 const PersonRegister = () => {
   const [estadosBR, setEstadosBR] = useState([])
   const [bancos, setBancos] = useState([])
+
   const [formState, setFormState] = useState({
     nome: '',
     cpf: '',
@@ -63,6 +65,7 @@ const PersonRegister = () => {
     getBanks()
   }, [])
 
+
   return (
     <ContainerWhite>
       <NavBar />
@@ -90,6 +93,7 @@ const PersonRegister = () => {
             optionsList={estadosBR}
             value={formState.fk_estado}
             onChange={(event) => handleForm('fk_estado', parseInt(event.target.value))}
+
           />
           <StyledRegister.Divider />
           <StyledRegister.DividerText>
@@ -101,6 +105,7 @@ const PersonRegister = () => {
             optionsList={bancos}
             value={formState.fk_banco}
             onChange={(event) => handleForm('fk_banco', parseInt(event.target.value))}
+
           />
           <Input
             label="Agencia"
