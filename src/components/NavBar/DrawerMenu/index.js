@@ -1,8 +1,6 @@
 import React from 'react'
 import Styled from './styles'
 import AvatarImg from '../../../assets/img/avatar.png'
-
-const DrawerMenu = (props) => {
 import { useHistory } from 'react-router'
 
 const DrawerMenu = (props) => {
