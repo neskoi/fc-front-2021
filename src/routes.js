@@ -16,6 +16,7 @@ import DependentsPage from './pages/StudentsPage/StudentsPage';
 
 const hasToken = localStorage.getItem('token');
 
+
 function Routes() {
     return (
         <BrowserRouter>
@@ -42,14 +43,3 @@ function Routes() {
 }
 
 export default Routes;
-
-
-
-
-
-
-
-
-
-
-
