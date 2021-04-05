@@ -13,6 +13,7 @@ import { BASE_URL } from "../../constants/URLs"
 const NewStudentPage = (props) => {
     const history = useHistory();
     useProtectedPage()
+    const history = useHistory()
     const email = localStorage.getItem('email')
     const [schools, setSchools] = useState([])
     const [states, setStates] = useState([])
@@ -101,6 +102,7 @@ const NewStudentPage = (props) => {
             <TitleContainer>
             <p>Dependente</p>
             </TitleContainer>
+
             <InsertImage id="insertImage" onChange={(e) => handleFileUpload(e)}/>
             <InsertImageScreen id="insertImageScreen" htmlFor="insertImage"><CamIcon/></InsertImageScreen>
             <StyledLabel>Nome do aluno</StyledLabel>

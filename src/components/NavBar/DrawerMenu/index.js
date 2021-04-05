@@ -24,7 +24,6 @@ const DrawerMenu = (props) => {
           <div>
             <h4>Nome do Responsável</h4>
             <p>{localStorage.getItem('email') || 'email@email.com'}</p>
-
           </div>
         </Styled.Person>
       </Styled.Header>

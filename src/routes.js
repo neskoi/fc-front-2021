@@ -9,6 +9,10 @@ import StudentsPage from './pages/UnpaidEstimates/UnpaidEstimate'
 import Success from './pages/Register/Success';
 import NewStudentPage from './pages/NewStudentPage/NewStudentPage';
 import ResponsiblePage from './pages/ResponsiblePage/ResponsiblePage';
+import GoalPage from './pages/GoalPage/GoalPage';
+import test from './pages/UnpaidEstimates/UnpaidEstimate';
+import test2 from './pages/StudentEstimate/StudentEstimate';
+import DependentsPage from './pages/StudentsPage/StudentsPage';
 
 const hasToken = localStorage.getItem('token');
 
@@ -32,6 +36,7 @@ function Routes() {
 
                 <Route exact component={Landing}/>
             </Switch>
+
         </BrowserRouter>
     );
 }

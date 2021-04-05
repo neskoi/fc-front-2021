@@ -1,17 +1,18 @@
 import { BASE_URL } from "../../constants/URLs"
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
-import { ListContainer } from "./styles"
+import { ButtonContainer, ListContainer, PageContainer, ResponsibleContainer } from "./styles"
 import StudentCard from '../../components/StudentCard/StudentCard';
 import Footer from "../../components/Footer/Footer"
 import Primary from "../../components/Button/Primary"
 import { useHistory } from "react-router"
 import NavBar from '../../components/NavBar/NavBar'
 import { useProtectedPage } from '../../hooks/UseProtectedPage'
+import OrangeButton from "../../components/OrangeButton/OrangeButton"
 
 const fixPathName = require('../../utils/fixPathName');
 
-const StudentsPage = () => {
+const DependentsPage = () => {
     useProtectedPage()
     const email = localStorage.getItem('email')
     const history = useHistory()
@@ -39,7 +40,10 @@ const StudentsPage = () => {
 
     return(
         <div>
+        
+        <PageContainer>
         <NavBar />
+
         <ListContainer>
             <p>E-mail do Responsável</p>
             <p>{email}</p>
@@ -56,8 +60,9 @@ const StudentsPage = () => {
             <Primary name="Adicionar dependente" type="submit" onClick={()=> history.push('/newstudent')}/>
         </ListContainer>
         <Footer/>
+
         </div>
         )
 }
 
-export default StudentsPage
+export default DependentsPage
