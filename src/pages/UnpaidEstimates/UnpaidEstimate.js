@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import {
-    Filter,
     FilterRelative,
     Search,
     SearchGo,
