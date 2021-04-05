@@ -2,6 +2,7 @@ import React, {
   useState,
   useEffect,
 } from 'react'
+
 import { useHistory } from "react-router-dom"
 import api from '../../utils/configApi'
 import ContainerWhite from '../../components/ContainerWhite'
@@ -14,6 +15,7 @@ import Button from '../../components/Button/Primary'
 import Footer from '../../components/Footer/Footer'
 import AvatarImg from '../../assets/img/avatar.png'
 import StyledRegister from './styles'
+import { BASE_URL } from '../../constants/URLs'
 
 const PersonRegister = () => {
   const history = useHistory();
@@ -36,14 +38,10 @@ const PersonRegister = () => {
     })
   }
 
-  const handleSelect = (key) => {
-    console.log(key.target.value)
-  }
-
   const submitForm = (event) => {
     event.preventDefault()
     console.log('formState', formState)
-    api().post('pessoa/cadastro', formState)
+    api().post(BASE_URL+'pessoa/cadastro', formState)
     .then(res => {
       history.push("/cadastro/sucesso")
       })
@@ -51,13 +49,13 @@ const PersonRegister = () => {
   }
 
   const getStates = () => {
-    api().get('estado/buscar').then(res => {
+    api().get(BASE_URL+'/estado/buscar').then(res => {
       setEstadosBR(res.data.data)
     })
   }
 
   const getBanks = () => {
-    api().get('banco/buscar').then(res => {
+    api().get(BASE_URL+'/banco/buscar').then(res => {
       setBancos(res.data.data)
     })
   }

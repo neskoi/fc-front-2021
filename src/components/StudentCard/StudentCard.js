@@ -44,6 +44,14 @@ const InfoHolder = styled.div `
         font-size: 11px;
     }
 `
+const schoolNameShortner = (schoolname = "") => {
+    const stringSize = schoolname.length;
+    if( stringSize > 20){
+        const reducedName = schoolname.slice(0, 20);
+        return reducedName + "...";
+    }
+    return schoolname;
+}
 
 const StudentsPage = (props) => {
     return(
@@ -51,8 +59,8 @@ const StudentsPage = (props) => {
             <InfoHolder>
                 <ProgressBar width="95%" progression="0%"/>
                 <p className="name">{props.name || "Nome do Aluno"}</p>
-                <p>{props.school || "E.E. Escola Escola"}</p>
-                <OrangeButton width="120px" height={'40px'}>DOAR</OrangeButton>
+                <p>{schoolNameShortner(props.school) || "E.E. Escola"}</p>
+                <OrangeButton width="120px" height={'40px'}>{props.text}</OrangeButton>
             </InfoHolder>
         </Wrapper>
     )

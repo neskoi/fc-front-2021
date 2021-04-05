@@ -66,7 +66,7 @@ const SignUpPage = () => {
                                 required
                                 onChange={handleInputChange}
                             />
-                            <Button type='submit' style={{ color: 'white', backgroundColor: '#FF692A' }} variant="contained">Cadastrar</Button>
+                            <Button type='submit' style={{ color: 'white', backgroundColor: '#FF692A', margin:'20px 0' }} variant="contained">Cadastrar</Button>
                             <Button style={{ color: 'white' }} onClick={()=> history.push('/login')}>Voltar para tela de acesso</Button>    
                         </FormContainer>
                     </BlueSquare>

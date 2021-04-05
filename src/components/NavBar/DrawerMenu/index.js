@@ -9,6 +9,7 @@ const DrawerMenu = (props) => {
   const logout = () => {
     localStorage.removeItem("token")
     localStorage.removeItem("email")
+    localStorage.removeItem("role")
     history.push('/login')
   }
 
@@ -21,7 +22,8 @@ const DrawerMenu = (props) => {
         <Styled.Person>
           <Styled.Avatar src={AvatarImg} />
           <div>
-            <p>{email}</p>
+            <h4>Nome do Responsável</h4>
+            <p>{localStorage.getItem('email') || 'email@email.com'}</p>
           </div>
         </Styled.Person>
       </Styled.Header>

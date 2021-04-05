@@ -7,7 +7,7 @@ export function useUnprotectedPage(props) {
     useEffect(() => {
         const token = localStorage.getItem("token")
         if(token) {
-            history.push('/cadastro')
+            history.push('/acao')
         }
     }, [history])
 

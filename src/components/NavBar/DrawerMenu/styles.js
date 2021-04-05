@@ -7,10 +7,17 @@ import { IoMdSettings } from "react-icons/io";
 import { IoMdLogOut } from "react-icons/io";
 
 const Container = styled.div`
-  width: 70vw;
   display: flex;
   flex: 1;
   flex-direction: column;
+
+  li{
+    cursor: pointer;
+  }
+
+  @media only screen and (max-width: 900px){
+    width: 70vw;
+  }
 `
 
 const Header = styled.div`
@@ -36,14 +43,14 @@ const Person = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-itens: center;
+    align-items: center;
     margin-left: 12px;
   }
 `
 
 const Avatar = styled.img`
-  width: 84px;
-  height: 84px;
+  width: 55px;
+  height: 55px;
   margin-left: 24px;
 `
 

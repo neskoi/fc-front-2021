@@ -27,7 +27,7 @@ export const Wrapper = styled.div `
     justify-content: space-between;
     align-items: center;
     width: 100%;
-
+    min-height: 100vh;
     background-image: url('${BASE_URL}/background/background-texture.jpg');
     background-size: 100% 100%;
     background-attachment: fixed;
