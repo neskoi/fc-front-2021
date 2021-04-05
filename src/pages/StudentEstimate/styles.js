@@ -26,7 +26,6 @@ export const Wrapper = styled.div `
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            width: 100%;
         }
     }
 

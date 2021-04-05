@@ -1,11 +1,9 @@
-import CardStudent from "../../components/CardStudent/CardStudent"
 import { BASE_URL } from "../../constants/URLs"
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
 import { ListContainer } from "./styles"
 import StudentCard from '../../components/StudentCard/StudentCard';
 import Footer from "../../components/Footer/Footer"
-import { TextField } from "@material-ui/core"
 import Primary from "../../components/Button/Primary"
 import { useHistory } from "react-router"
 import NavBar from '../../components/NavBar/NavBar'
@@ -25,7 +23,6 @@ const StudentsPage = () => {
 
     const getAllStudents = () => {
         axios.get(`${BASE_URL}/students/${email}`,
-        // axios.get(`${BASE_URL}/students/rayon`,
         {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -48,13 +45,6 @@ const StudentsPage = () => {
             <p>{email}</p>
             {students && students.sort((a, b) => a.name > b.name ? 1:-1).map(student => {
                 return (
-                    // <CardStudent
-                    //     key={student.pk_filho}
-                    //     avatar={student.img_avatar_url}
-                    //     name={student.nome}
-                    //     school={student.escola}
-                    //     year={student.ano_escolar}
-                    // />
                     <StudentCard
                         key = {student.pk_orcamento}
                         img_avatar_url={fixPathName(student.img_avatar_url)} 

@@ -1,34 +1,37 @@
-import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
-
-import SignupPage from './pages/SignupPage/SignupPage'
-import Login from './pages/Login';
+import React from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Landing from './pages/Landing/Landing';
-import Register from './pages/Register';
+import Login from './pages/Login/Login';
+import Action from './pages/Register';
+import SignupPage from './pages/SignupPage/SignupPage'
 import PersonRegister from './pages/Register/PersonRegistrer'
 import StudentsPage from './pages/UnpaidEstimates/UnpaidEstimate'
 import Success from './pages/Register/Success';
 import NewStudentPage from './pages/NewStudentPage/NewStudentPage';
 import ResponsiblePage from './pages/ResponsiblePage/ResponsiblePage';
 
+const hasToken = localStorage.getItem('token');
+
 function Routes() {
     return (
-
         <BrowserRouter>
+            <Switch>
+                {!hasToken ?([
+                    <Route path="/login" exact component={Login} />,
+                    <Route path="/signup" exact component={SignupPage} />
+                ]):(null)}
+                {hasToken ? ([
+                    <Route path="/acao" exact component={Action} />,
+                    <Route path="/cadastrar/estudante" exact component={NewStudentPage} />,
+                    <Route path="/cadastrar/responsavel" exact component={PersonRegister}/> ,
+                    <Route path="/cadastro/sucesso" exact component={Success} />,
+                    <Route path="/estudantes" exact component={StudentsPage} />,
+                    <Route path="/solicitar" exact component={ResponsiblePage} />,
+                ]) : (null)}
+                
 
-            <Route path="/cadastro" exact component={Register} />
-            <Route path="/cadastro/pessoa" exact component={PersonRegister} />
-            <Route path="/cadastro/sucesso" exact component={Success} />
-            <Route path="/login" exact component={Login} />
-            <Route path="/signup" exact component={SignupPage} />
-            <Route path="/students" exact component={StudentsPage} />
-            <Route path="/newstudent" exact component={NewStudentPage} />
-            <Route path="/goal" exact component={GoalPage} />
-            <Route path="/responsible" exact component={ResponsiblePage} />
-            <Route path="/test" exact component={test} />
-            <Route path="/test2" exact component={test2} />
-            <Route path="/" exact component={Home} />
-
+                <Route exact component={Landing}/>
+            </Switch>
         </BrowserRouter>
     );
 }

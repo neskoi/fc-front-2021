@@ -2,13 +2,13 @@ import { Button } from "@material-ui/core"
 import axios from 'axios';
 import React from 'react';
 import { useHistory } from 'react-router';
-import BlueSquare from "../components/BlueSquare";
-import Container from "../components/Container";
-import { BASE_URL } from '../constants/URLs';
-import { useForm } from '../hooks/UseForm';
+import BlueSquare from "../../components/BlueSquare";
+import Container from "../../components/Container";
+import { BASE_URL } from '../../constants/URLs';
+import { useForm } from '../../hooks/UseForm';
 import { FormContainer, LoginPageContainer, StyledButton, StyledInput, Title } from "./LoginStyles";
-import { useUnprotectedPage } from '../hooks/UseUnprotectedPage'
-import Footer from "../components/Footer/Footer"
+import { useUnprotectedPage } from '../../hooks/UseUnprotectedPage'
+import Footer from "../../components/Footer/Footer"
 
 function Login() {
     useUnprotectedPage()
@@ -18,7 +18,6 @@ function Login() {
     const handleInputChange = (event) => {
         const { value, name } = event.target
         onChange(value, name)
-        console.log(form)
     }
   
     const onSubmitForm = (event) => {
@@ -32,7 +31,8 @@ function Login() {
         .then((res)=> {
             localStorage.setItem('email',res.data.data.email)
             localStorage.setItem('token',res.data.data.token)
-            history.push('/cadastro')
+            history.push('/acao')
+            console.log(res.data.data);
             alert("Login realizado com sucesso")
         })
         .catch((err)=> {
@@ -70,7 +70,7 @@ function Login() {
                                 onChange={handleInputChange}
                             />
                             <label> </label>
-                            <StyledButton type='submit' style={{ color: 'white', backgroundColor: '#FF692A' }} variant="contained">LOGIN</StyledButton>
+                            <StyledButton type='submit' style={{ color: 'white', backgroundColor: '#FF692A', margin:'20px 0'}} variant="contained">LOGIN</StyledButton>
                         <Button style={{ color: 'white' }} onClick={()=> history.push('/signup')}>CADASTRAR-SE</Button>
                         <Button style={{ color: 'white' }}>ESQUECI A SENHA</Button>
                     </FormContainer>

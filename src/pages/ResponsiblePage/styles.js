@@ -1,17 +1,28 @@
 import styled from 'styled-components'
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"></link>
 
-export const PageContainer = styled.form `
-    display: flex;
-    flex-direction: column;
-    width: 80vw;
-    max-width: 465px;
-    min-height: 628px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    padding: 15px;
-    justify-content:space-around;
+export const Wrapper = styled.div `
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: calc(100vh - 195px);
+    overflow: hidden;
     text-align: center;
-`
+
+    .container{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 20px;
+
+        @media only screen and (max-width:900px){
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+`   

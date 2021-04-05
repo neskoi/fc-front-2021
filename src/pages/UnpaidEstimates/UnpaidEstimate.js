@@ -5,7 +5,6 @@ import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
 import StudentCard from '../../components/StudentCard/StudentCard';
 import StudentEstimate from '../../pages/StudentEstimate/StudentEstimate';
-
 import Checkout from '../Checkout/Checkout';
 
 const fixPathName = require('../../utils/fixPathName');
@@ -77,6 +76,7 @@ const StudentsPage = (props) => {
        return students.list && students.list.sort((a, b) => a.name > b.name ? 1:-1).map(student => {
             return (
                 <StudentCard
+                    text = "DOAR"
                     clicked={()=>{handleStudentSelection(student.pk_orcamento)}}
                     id = {student.pk_orcamento}
                     key = {student.pk_orcamento}
@@ -102,17 +102,11 @@ const StudentsPage = (props) => {
             <StudentEstimate 
                 visible={students.viewStudentEstimate}
                 name={students.selectedStudent.nome}
-
-                school={students.selectedStudent.escola}
-
                 school={students.selectedStudent.nome_escola}
-
-                message={students.selectedStudent.mensagem}
+                message={students.selectedStudent.historia}
                 valorTotal={students.selectedStudent.valor_total}
                 avatarUrl={fixPathName(students.selectedStudent.img_avatar_url)}
                 estimateUrl={fixPathName(students.selectedStudent.img_orcamento_url)}
-
-
                 clicked={handleShowCheckout}
                 toClose={handleBackToList}
             />

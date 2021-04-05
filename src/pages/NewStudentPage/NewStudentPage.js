@@ -1,19 +1,22 @@
-import { BASE_URL } from "../../constants/URLs"
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
+import { useHistory } from "react-router"
 import { useForm } from "../../hooks/UseForm"
-import { FormContainer, StyledLabel, TitleContainer } from "./styles"
-import { Button, TextField } from "@material-ui/core"
+import { FormContainer, StyledLabel, TitleContainer, Wrapper, InsertImage, InsertImageScreen, CamIcon } from "./styles"
+import { TextField } from "@material-ui/core"
 import Footer from "../../components/Footer/Footer"
 import Primary from "../../components/Button/Primary"
 import NavBar from '../../components/NavBar/NavBar'
 import { useProtectedPage } from '../../hooks/UseProtectedPage'
+import { BASE_URL } from "../../constants/URLs"
 
-const NewStudentPage = () => {
+const NewStudentPage = (props) => {
+    const history = useHistory();
     useProtectedPage()
     const email = localStorage.getItem('email')
     const [schools, setSchools] = useState([])
     const [states, setStates] = useState([])
+    const [image, setImage] = useState([])
     const {form, onChange, resetState} = useForm({ name: "", cpf: "", school: "", year: "", description: "", state:"" })
 
     const handleInputChange = (event) => {
@@ -43,7 +46,7 @@ const NewStudentPage = () => {
     }
 
     const getSchoolsByState = (id) => {
-        axios.get(`${BASE_URL}/school/state/${id}`,
+        axios.get(`${BASE_URL}/school/state/${id || 27}`,
         {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -57,16 +60,25 @@ const NewStudentPage = () => {
         })
     }
 
+    const handleFileUpload = (e) => {
+        setImage(e.target.files[0]);
+        const insertImageScreen = document.querySelector('#insertImageScreen');
+        const imageURL = URL.createObjectURL(e.target.files[0]);
+        insertImageScreen.style.backgroundImage = `url(${imageURL})`;
+    }
+
     const CreateStudent = (event) => {
         event.preventDefault()
-        const body = {
-            "school": form.school,
-            "name": form.name,
-            "cpf": form.cpf,
-            "year": form.year,
-            "description": form.description,
-        }
-        axios.post(`${BASE_URL}/student/${email}`,body,
+      
+        const formData = new FormData();
+        formData.append('avatar', image);
+        formData.append("school", form.school)
+        formData.append("name", form.name)
+        formData.append("cpf", form.cpf)
+        formData.append("year", form.year)
+        formData.append("description", form.description)
+
+        axios.post(`${BASE_URL}/student/${email}`,formData,
         {
             headers: {
                 'Content-Type': 'multipart/form-data',  
@@ -75,7 +87,7 @@ const NewStudentPage = () => {
         })
         .then((res)=>{
             resetState()
-            alert("estudante criado")
+            history.push('/solicitar');
         })
         .catch((err)=>{
             console.log(err)
@@ -83,13 +95,14 @@ const NewStudentPage = () => {
     }
 
     return(
-        <div>
+        <Wrapper>
         <NavBar />
         <FormContainer>
             <TitleContainer>
             <p>Dependente</p>
             </TitleContainer>
-            <button>Carregar imagem</button>
+            <InsertImage id="insertImage" onChange={(e) => handleFileUpload(e)}/>
+            <InsertImageScreen id="insertImageScreen" htmlFor="insertImage"><CamIcon/></InsertImageScreen>
             <StyledLabel>Nome do aluno</StyledLabel>
             <TextField
             id="input-with-icon-adornment"
@@ -119,7 +132,7 @@ const NewStudentPage = () => {
             <TextField select name="school" variant="outlined" value={form.school} onChange={handleInputChange} required>
                 {schools && schools.sort((a, b) => a.nome > b.nome ? 1:-1).map(school => {
                     return (
-                        <option key={school.pk_escola} value={school.pk_escola}>{school.nome}</option>
+                        <option key={school.pk_escola} value={school.pk_escola}>{school.nome_escola}</option>
                     )
                 })}
             </TextField>
@@ -142,11 +155,10 @@ const NewStudentPage = () => {
                 onChange={handleInputChange}
             />
 
-            {/* <Button style={{color: 'white', backgroundColor: '#FF692A'}} type="submit" onClick={CreateStudent}>Salvar dados cadastrais</Button> */}
             <Primary name="Salvar" type="submit" onClick={CreateStudent}/>
         </FormContainer>
         <Footer/>
-        </div>
+        </Wrapper>
         )
 }
 
