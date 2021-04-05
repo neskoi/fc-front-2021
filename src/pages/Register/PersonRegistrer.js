@@ -43,7 +43,7 @@ const PersonRegister = () => {
   const submitForm = (event) => {
     event.preventDefault()
     console.log('formState', formState)
-    api().post(BASE_URL+'pessoa/cadastro', formState)
+    api().post(BASE_URL+'/pessoa/cadastro', formState)
     .then(res => {
       history.push("/cadastro/sucesso")
       })

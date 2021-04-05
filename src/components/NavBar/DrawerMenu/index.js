@@ -5,7 +5,6 @@ import { useHistory } from 'react-router'
 
 const DrawerMenu = (props) => {
   const history = useHistory()
-  const email = localStorage.getItem("email")
   const logout = () => {
     localStorage.removeItem("token")
     localStorage.removeItem("email")

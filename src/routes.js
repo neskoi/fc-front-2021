@@ -10,8 +10,6 @@ import Success from './pages/Register/Success';
 import NewStudentPage from './pages/NewStudentPage/NewStudentPage';
 import ResponsiblePage from './pages/ResponsiblePage/ResponsiblePage';
 
-const hasToken = localStorage.getItem('token');
-
 
 function Routes() {
     return (
