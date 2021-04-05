@@ -16,8 +16,10 @@ import Footer from '../../components/Footer/Footer'
 import AvatarImg from '../../assets/img/avatar.png'
 import StyledRegister from './styles'
 import { BASE_URL } from '../../constants/URLs'
+import { useProtectedPage } from '../../hooks/UseProtectedPage'
 
 const PersonRegister = () => {
+  useProtectedPage();
   const history = useHistory();
   const [estadosBR, setEstadosBR] = useState([])
   const [bancos, setBancos] = useState([])

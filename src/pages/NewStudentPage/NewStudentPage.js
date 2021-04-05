@@ -11,8 +11,8 @@ import { useProtectedPage } from '../../hooks/UseProtectedPage'
 import { BASE_URL } from "../../constants/URLs"
 
 const NewStudentPage = (props) => {
+    useProtectedPage();
     const history = useHistory();
-    useProtectedPage()
     const email = localStorage.getItem('email')
     const [schools, setSchools] = useState([])
     const [states, setStates] = useState([])

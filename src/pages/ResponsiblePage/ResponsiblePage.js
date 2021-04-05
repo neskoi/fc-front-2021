@@ -10,11 +10,15 @@ import OrangeButton from "../../components/OrangeButton/OrangeButton"
 import StudentCard from "../../components/StudentCard/StudentCard";
 import fixPathName from '../../utils/fixPathName';
 import { BASE_URL } from '../../constants/URLs'
+import { useProtectedPage } from '../../hooks/UseProtectedPage';
 
 const ResponsiblePage = (props) => {
-
+    useProtectedPage();
     const history = useHistory();
     const isRequester = localStorage.getItem('role') === 'requester';
+    if(!isRequester) history.push('/');
+
+
     const [students, setStudents] = useState({
         addStudentEstimate: false,
         selectedStudent: {},

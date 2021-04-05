@@ -32,8 +32,6 @@ function Login() {
             localStorage.setItem('email',res.data.data.email)
             localStorage.setItem('token',res.data.data.token)
             history.push('/acao')
-            console.log(res.data.data);
-            alert("Login realizado com sucesso")
         })
         .catch((err)=> {
             console.log(err)
