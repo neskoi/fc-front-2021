@@ -13,7 +13,6 @@ import { BASE_URL } from "../../constants/URLs"
 const NewStudentPage = (props) => {
     const history = useHistory();
     useProtectedPage()
-    const history = useHistory()
     const email = localStorage.getItem('email')
     const [schools, setSchools] = useState([])
     const [states, setStates] = useState([])
