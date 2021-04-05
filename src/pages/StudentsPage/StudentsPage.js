@@ -1,14 +1,13 @@
 import { BASE_URL } from "../../constants/URLs"
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
-import { ButtonContainer, ListContainer, PageContainer, ResponsibleContainer } from "./styles"
+import { ListContainer, PageContainer, ResponsibleContainer } from "./styles"
 import StudentCard from '../../components/StudentCard/StudentCard';
 import Footer from "../../components/Footer/Footer"
 import Primary from "../../components/Button/Primary"
 import { useHistory } from "react-router"
 import NavBar from '../../components/NavBar/NavBar'
 import { useProtectedPage } from '../../hooks/UseProtectedPage'
-import OrangeButton from "../../components/OrangeButton/OrangeButton"
 
 const fixPathName = require('../../utils/fixPathName');
 
@@ -60,6 +59,7 @@ const DependentsPage = () => {
             <Primary name="Adicionar dependente" type="submit" onClick={()=> history.push('/newstudent')}/>
         </ListContainer>
         <Footer/>
+        </PageContainer>
 
         </div>
         )

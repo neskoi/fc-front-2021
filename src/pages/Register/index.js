@@ -6,8 +6,10 @@ import Container from '../../components/Container'
 import BlueSquare from '../../components/BlueSquare'
 import PrimaryButton from '../../components/Button/Primary'
 import { useHistory } from 'react-router'
+import { useProtectedPage } from '../../hooks/UseProtectedPage';
 
 const Register = () => {
+  useProtectedPage();
   const history = useHistory();
 
   const handleDonate = () => {

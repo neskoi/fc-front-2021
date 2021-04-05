@@ -16,13 +16,14 @@ import StudentEstimate from '../../pages/StudentEstimate/StudentEstimate';
 import Filters from './Filters'
 
 import Checkout from '../Checkout/Checkout';
+import { useProtectedPage } from '../../hooks/UseProtectedPage';
 
 const fixPathName = require('../../utils/fixPathName');
 const {BASE_URL}  = require('../../constants/URLs');
 
 
-const StudentsPage = (props) => {
-
+const UnpaidEstimate = (props) => {
+    useProtectedPage();
     const [students, setStudents] = useState({
         viewStudentEstimate: false,
 
@@ -137,4 +138,4 @@ const StudentsPage = (props) => {
     )
 }
 
-export default StudentsPage
+export default UnpaidEstimate
